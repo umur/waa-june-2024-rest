@@ -16,4 +16,8 @@ public class Student {
     private String major;
     private int gpa;
     private List<Course> coursesTaken = new ArrayList<>();
+
+    public void addCourse(Course course) {
+        coursesTaken.add(course);
+    }
 }
