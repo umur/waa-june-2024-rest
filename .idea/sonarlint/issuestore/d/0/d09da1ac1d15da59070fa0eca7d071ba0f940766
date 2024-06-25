@@ -1,0 +1,5 @@
+
+—
+java:S6204/"zReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()' and ensure that the list is unmodified.(ª™¨¹8ï¿¸†…2
+H
+java:S11688"+Return an empty collection instead of null.(¥¹ï8õ¿¸†…2
