@@ -2,6 +2,7 @@ package com.miu.waa.service.course;
 
 import com.miu.waa.entity.Course;
 import com.miu.waa.repository.CourseRepository;
+import com.miu.waa.repository.GenericRepo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

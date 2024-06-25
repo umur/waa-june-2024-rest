@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public class CourseRepository {
 
-    private static List<Course> courses = new ArrayList<>();
+    private List<Course> courses = new ArrayList<>();
 
     public void add(Course course) {
         courses.add(course);
@@ -28,11 +28,12 @@ public class CourseRepository {
     }
 
     public void update(Course course) {
-        for (Course course1 : courses) {
-            if (course1.getId().equals(course.getId())) {
-                course1.setName(course.getName());
-                course1.setCode(course.getCode());
-            }
+        Course updateCourse = findById(course.getId());
+        if (updateCourse == null) {
+           throw new RuntimeException("course not found");
         }
+        updateCourse.setName(course.getName());
+        updateCourse.setCode(course.getCode());
+        System.out.println("updated course " + updateCourse);
     }
 }
