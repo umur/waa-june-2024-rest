@@ -1,7 +1,7 @@
 package com.miu.waa.controller;
 
 import com.miu.waa.entity.Product;
-import com.miu.waa.service.ProductService;
+import com.miu.waa.service.product.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

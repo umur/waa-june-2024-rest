@@ -1,4 +1,4 @@
-package com.miu.waa.service;
+package com.miu.waa.service.product;
 
 import com.miu.waa.entity.Product;
 import com.miu.waa.repository.ProductRepo;
