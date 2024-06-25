@@ -6,6 +6,7 @@ In this lab, you will create a spring boot application from scratch to implement
 
 Before implementation, refer to the ‘Useful GIT Videos’ section.
 
+
 ###  Requirements
 ---
 * Use n-tier software architecture model.
