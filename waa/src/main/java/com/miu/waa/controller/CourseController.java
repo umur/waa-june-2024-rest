@@ -40,4 +40,5 @@ public class CourseController {
     public void delete(@RequestBody Course course) {
         courseService.delete(course);
     }
+
 }

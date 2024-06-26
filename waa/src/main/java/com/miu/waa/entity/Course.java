@@ -6,6 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,4 +21,7 @@ public class Course {
     @NotNull
     @Size(min = 1, max = 20)
     private String code;
+
+    private List<Student> students = new ArrayList<>();
+
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Repository
 public class StudentRepo {
@@ -38,5 +39,11 @@ public class StudentRepo {
             updatedStudent.setCoursesTaken(student.getCoursesTaken());
         }
         else throw new RuntimeException("Student not found");
+    }
+
+
+    public List<Student> findByMajor(String major) {
+        return students.stream().filter(student -> student.getMajor().equals(major))
+                .collect(Collectors.toList());
     }
 }

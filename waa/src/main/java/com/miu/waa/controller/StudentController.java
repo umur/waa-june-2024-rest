@@ -46,4 +46,9 @@ public class StudentController {
         studentService.deleteById(id);
     }
 
+    @GetMapping("/{major}")
+    public List<Student> getStudentsByMajor(@PathVariable String major) {
+        return studentService.getStudentsByMajor(major);
+    }
+
 }
