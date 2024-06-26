@@ -10,8 +10,11 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -29,50 +32,69 @@ public class StudentController {
             @ApiResponse(responseCode = "404", description = "Employee not found",
                     content = @Content) })
     @GetMapping
-    public List<Student> getAllStudents() {
-        return studentService.findAll();
+    public ResponseEntity<List<Student>> getAllStudents() {
+        List<Student> students = studentService.findAll();
+        if (students.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(students);
     }
 
     @Tag(name = "get", description = "GET methods of Student APIs")
     @GetMapping("/{id}")
-    public Student getStudentById(
+    public ResponseEntity<Student> getStudentById(
             @Parameter(
                     description = "ID of student to be retrieved",
                     required = true)
             @PathVariable Long id) {
-        return studentService.find(id);
+
+        Student student = studentService.find(id);
+        if (student == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(student);
     }
 
     @Tag(name = "post", description = "POST methods of Student APIs")
     @PostMapping
-    public Student addStudent(@RequestBody Student student) {
+    public ResponseEntity<Void> addStudent(@RequestBody Student student) {
         studentService.save(student);
-        return student;
+        URI location = ServletUriComponentsBuilder.fromCurrentRequestUri()
+                .path("/{id}")
+                .buildAndExpand(student.getId())
+                .toUri();
+        return ResponseEntity.created(location).build();
     }
 
     @Tag(name = "put", description = "PUT methods of Student APIs")
     @PutMapping
-    public Student updateStudent(@RequestBody Student student) {
+    public ResponseEntity<Void> updateStudent(@RequestBody Student student) {
         studentService.update(student);
-        return student;
+        return ResponseEntity.noContent().build();
     }
 
     @Tag(name = "delete", description = "DELETE methods of Student APIs")
     @DeleteMapping
-    public void delete(@RequestBody Student student) {
+    public ResponseEntity<Void> delete(@RequestBody Student student) {
         studentService.delete(student);
+        return ResponseEntity.noContent().build();
     }
 
     @Tag(name = "delete", description = "DELETE methods of Student APIs")
     @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteById(@PathVariable Long id) {
         studentService.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 
     @Tag(name = "get", description = "GET methods of Student APIs")
     @GetMapping("/{major}")
-    public List<Student> getStudentsByMajor(@PathVariable String major) {
-        return studentService.getStudentsByMajor(major);
+    public ResponseEntity<List<Student>> getStudentsByMajor(@PathVariable String major) {
+        List<Student> students = studentService.getStudentsByMajor(major);
+        if (students.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(students);
     }
 
 }
