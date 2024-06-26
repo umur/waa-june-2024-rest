@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/courses")
+@RestController
+@RequestMapping("/api/courses")
 public class CourseController {
     @Autowired
     private CourseService courseService;
@@ -24,12 +25,12 @@ public class CourseController {
     public void addCourse(@RequestBody Course course){
         courseService.save(course);
     }
-    @PutMapping
+    @PutMapping("{id}")
     public void updateCourse(@PathVariable int id, @RequestBody Course course){
         courseService.updateCourse(id, course);
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deleteCourse(@PathVariable int id){
         courseService.deleteCourse(id);
     }

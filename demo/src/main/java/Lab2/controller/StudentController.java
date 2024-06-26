@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController("/students")
+@RestController
+@RequestMapping("/api/students")
 public class StudentController {
     @Autowired
     private StudentService studentService;
@@ -25,7 +26,7 @@ public class StudentController {
     public void addStudent(@RequestBody Student student){
         studentService.save(student);
     }
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public void deletStudent(@PathVariable int id){
         studentService.delete(id);
     }
