@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class StudnetServiceImpl {
+public class StudnetServiceImpl implements  StudentService{
 
     @Autowired
     private StudentRepo studentRepo;
