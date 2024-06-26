@@ -39,9 +39,6 @@ public class CourseServiceImpl implements CourseService{
         if(course1 == null){
             throw new RuntimeException("Course not found");
         }
-        course1.setName(course.getName());
-        course1.setId(course.getId());
-        course1.setCode(course.getCode());
-        courseRepo.updateCourse(id, course1);
+        courseRepo.updateCourse(id, course);
     }
 }

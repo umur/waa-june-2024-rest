@@ -37,6 +37,9 @@ public class StudentRepo {
         }
         return studentByMajor;
     }
+    public List<Student> getAll(){
+        return students;
+    }
     public List<Course> getCourseByStudentId(int id){
         Student student = students.get(id);
         return student.getCourses();
