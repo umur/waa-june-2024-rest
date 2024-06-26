@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -24,7 +25,7 @@ public class Student {
     @NotNull
     private double gpa;
 
-    private List<Course> coursesTaken;
+    private List<Course> coursesTaken = new ArrayList<>();
 
     public void addCourse(Course course) {
         coursesTaken.add(course);
