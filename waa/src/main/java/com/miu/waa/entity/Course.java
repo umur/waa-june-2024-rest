@@ -22,6 +22,9 @@ public class Course {
     @Size(min = 1, max = 20)
     private String code;
 
-    private List<Student> students = new ArrayList<>();
-
+//    private List<Student> students = new ArrayList<>();
+//
+//    public void addStudent(Student student) {
+//        students.add(student);
+//    }
 }

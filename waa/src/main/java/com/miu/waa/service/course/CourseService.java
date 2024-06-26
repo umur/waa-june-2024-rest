@@ -11,4 +11,6 @@ public interface CourseService {
     void save(Course course);
     void update(Course course);
     void delete(Course course);
+
+    List<Course> findByStudentId(Long studentId);
 }

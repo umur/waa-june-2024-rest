@@ -41,4 +41,9 @@ public class CourseController {
         courseService.delete(course);
     }
 
+    @GetMapping("/{studentId}")
+    public List<Course> getCoursesByStudentId(@PathVariable Long studentId) {
+       return courseService.findByStudentId(studentId);
+    }
+
 }

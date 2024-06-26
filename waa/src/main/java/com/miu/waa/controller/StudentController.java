@@ -12,7 +12,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StudentController {
 
-    private StudentService studentService;
+    private final StudentService studentService;
 
     @GetMapping
     public List<Student> getAllStudents() {
