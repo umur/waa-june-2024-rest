@@ -14,14 +14,14 @@ import java.util.List;
 @Data
 @ToString
 public class Student {
-    private long id;
+    private int id;
     private String firstName;
     private String lastName;
     private String email;
     private String major;
     private double gpa;
 
-    public Student(long id, String firstName, String lastName, String email, String major, double gpa) {
+    public Student(int id, String firstName, String lastName, String email, String major, double gpa) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
