@@ -52,11 +52,9 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public List<Course> getCoursesByStudentId(int studentId) {
         Student student = studentRepository.findById(studentId);
-        if (student == null) {
-            return new ArrayList<>();
+        if (student != null) {
+            return student.getCoursesTaken();
         }
-        return student.getCourseIds().stream()
-                .map(courseRepository::findById)
-                .collect(Collectors.toList());
+        return null;
     }
 }

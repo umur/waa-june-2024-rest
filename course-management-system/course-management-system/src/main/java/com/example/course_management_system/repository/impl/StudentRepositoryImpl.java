@@ -36,7 +36,7 @@ public class StudentRepositoryImpl implements StudentRepository {
             s.setEmail(student.getEmail());
             s.setMajor(student.getMajor());
             s.setGpa(student.getGpa());
-            s.setCourseIds(student.getCourseIds());
+            s.setCoursesTaken(student.getCoursesTaken());
         });
     }
 

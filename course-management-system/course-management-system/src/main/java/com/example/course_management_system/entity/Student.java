@@ -14,5 +14,5 @@ public class Student {
     private String email;
     private String major;
     private double gpa;
-    private List<Integer> courseIds;//store only course IDs to maintain relationships
+    private List<Course> coursesTaken;
 }
